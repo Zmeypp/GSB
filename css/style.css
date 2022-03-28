@@ -1,0 +1,187 @@
+/* GLOBAL */
+
+html {
+    background-color: #DCDCDC;
+}
+
+hr {
+    width: 20vw;
+    height: 0.2vh;
+    border-color: black;
+    background-color: black;
+}
+
+input[type=text], input[type=password]{
+    text-align: center;
+}
+
+.decadeDiv {
+    margin-top: 15vh;
+}
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 70px;
+    line-height: 70px;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.header .header-menu {
+    text-align: center;
+    margin-right: 30px;
+}
+
+.header .header-menu a {
+    margin-right: 15px;
+    color: #000000;
+}
+
+.header .header-menu a:hover {
+    color: #3498db;
+}
+
+.heading-site {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header .header-logo {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    float: left;
+    margin-left: 30px;
+}
+
+.block .navBarHeader {
+    background-color: #00BFFF;
+}
+
+/* SPECIFIQUE PAGE PROFIL */
+
+.texteConnecteComme {
+    font-size: 25px;
+}
+
+.siteProDe {
+    font-size: 20px;
+}
+
+.texteBienvenue {
+    margin-top: 15vh;
+    font-size: 38px;
+}
+
+/* SPECIFIQUE PAGE CONNEXION */
+
+.connexionBox {
+    width: 40vw;
+    background-color: #00BFFF;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.connexionBox .buttonConnexion {
+    background-color: white;
+    color: black;
+}
+
+.imgGSB {
+    height: 18vh;
+}
+
+.field .imgCaptcha {
+    vertical-align: middle;
+}
+
+.connexionBox .buttonConnexion:hover {
+    background-color: #FFFFFF;
+    color: black;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#firstBR, #secondBR, #Error {
+    display: none;
+}
+
+/* SPECIFIQUE PAGE RENSEIGNER_FICHE */
+
+.periodeBox {
+    width: 40vw;
+    background-color: #00BFFF;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.field h1 {
+    font-size: 38px;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.divForfait {
+    margin-top: 8vh;
+}
+
+.fraisForfaitBox {
+    width: 40vw;
+    background-color: #00BFFF;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.fraisForfaitBox .buttonRenseignerFiche {
+    background-color: white;
+    color: black;
+}
+
+.fraisForfaitBox .buttonRenseignerFiche:hover {
+    background-color: #FFFFFF;
+    color: black;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.divNoForfait {
+    margin-top: 8vh;
+}
+
+.fraisNoForfaitBox {
+    width: 40vw;
+    background-color: #00BFFF;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.fraisNoForfaitBox .buttonRenseignerFiche {
+    background-color: white;
+    color: black;
+}
+
+.fraisNoForfaitBox .buttonRenseignerFiche:hover {
+    background-color: #FFFFFF;
+    color: black;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+
+/* SPECIFIQUE PAGE SAISIR_VEHICULE */
+
+.vehiculeBox {
+    width: 40vw;
+    background-color: #00BFFF;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.vehiculeBox .buttonSaisirVehicule {
+    background-color: white;
+    color: black;
+}
+
+.vehiculeBox .buttonSaisirVehicule:hover {
+    background-color: #FFFFFF;
+    color: black;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
