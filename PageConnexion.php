@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('./Connection_BDD.php');
-$conn = getBdd('localhost', 'root', '');
+$conn = getBdd('localhost', 'groupe3', 'sio2021');
 $erreur = "";
 
 if(isset($_POST['formconnexion'])) {
@@ -39,7 +39,7 @@ if(isset($_POST['formconnexion'])) {
     $data4 = $reponse4->fetch();
     $_SESSION['id'] = $data4['id'];
 
-    $reponse5 = $conn->query('SELECT adresse, cp, ville from utilisateur WHERE login="'.$_POST['userconnect'].'"AND mdp="'.$_POST['mdpconnect'].'"');
+    $reponse5 = $conn->query('SELECT adresse, cp, ville from utilisateur WHERE login="'.$_POST['userconnect'].'"AND mdp="'.md5($_POST['mdpconnect']).'"');
     $data5 = $reponse5->fetch();
     $_SESSION['adresse'] = $data5['adresse'];
     $_SESSION['cp'] = $data5['cp'];

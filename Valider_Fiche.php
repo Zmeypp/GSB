@@ -1,7 +1,7 @@
 <?php
     session_start();
     include('./Connection_BDD.php');
-    $conn = getBdd('localhost', 'root', '');
+    $conn = getBdd('localhost', 'groupe3', 'sio2021');
 
     // CHEVAUX FISCAUX UTILISATEUR RECUPERATION DONNEES EXISTANTES :
 
@@ -255,6 +255,17 @@
             while($RecupNomPrenomDuProprietaireFicheAuForfait = $reqRecupNomPrenomDuProprietaireFicheAuForfait->fetch()) {
                 $NomDuProprietaireFicheAuForfait = $RecupNomPrenomDuProprietaireFicheAuForfait['nom'];
                 $PrenomDuProprietaireFicheAuForfait = $RecupNomPrenomDuProprietaireFicheAuForfait['prenom'];
+
+            }
+            $reqRecupNomRoleDuProprietaireFicheAuForfait = $conn->query("select NomRole from role inner join utilisateur on role.idr = utilisateur.idr where id='".$IdDuProprietaireFicheAuForfait."';");
+            while($RecupNomRoleDuProprietaireFicheAuForfait = $reqRecupNomRoleDuProprietaireFicheAuForfait->fetch()){
+                $NomRoleDuProprietaireFicheAuForfait = $RecupNomRoleDuProprietaireFicheAuForfait['NomRole'];
+            }
+            $reqRecupAdresseVilleCpDuProprietaireFicheAuForfait = $conn->query("select adresse,ville,cp from utilisateur where id='".$IdDuProprietaireFicheAuForfait."';");
+            while($RecupAdresseVilleCpDuProprietaireFicheAuForfait = $reqRecupAdresseVilleCpDuProprietaireFicheAuForfait->fetch()){
+                $RecupAdresseDuProprietaireFicheAuForfait = $RecupAdresseVilleCpDuProprietaireFicheAuForfait['adresse'];
+                $RecupVilleDuProprietaireFicheAuForfait = $RecupAdresseVilleCpDuProprietaireFicheAuForfait['ville'];
+                $RecupCPeDuProprietaireFicheAuForfait = $RecupAdresseVilleCpDuProprietaireFicheAuForfait['cp'];
             }
             ob_start();
             require('./fpdf/fpdf.php');
@@ -281,12 +292,10 @@
             $pdf->Cell(210, 10, 'Nom du proprietaire de la fiche : '.$NomDuProprietaireFicheAuForfait.' '.$PrenomDuProprietaireFicheAuForfait.'', 0, 1, 'L', 1);
             $pdf->SetXY(0, 72);
             $pdf->Cell(210, 10, 'Matricule du proprietaire de la fiche : '.$IdDuProprietaireFicheAuForfait.'', 0, 1, 'L', 1);
-            $pdf->SetXY(150, 78);
-            $pdf->Cell(60, 8, 'Numero de la fiche de frais : '.$_SESSION['id'].'', 0, 1, 'C', 1);
             $pdf->SetXY(0, 84);
-            $pdf->Cell(210, 10, 'Role du proprietaire de la fiche : '.$_SESSION['id'].'', 0, 1, 'L', 1);
+            $pdf->Cell(210, 10, 'Role du proprietaire de la fiche : '. $NomRoleDuProprietaireFicheAuForfait.'', 0, 1, 'L', 1);
             $pdf->SetXY(0, 96);
-            $pdf->Cell(210, 10, 'Adresse du proprietaire de la fiche : '.$_SESSION['id'].'', 0, 1, 'L', 1);
+            $pdf->Cell(210, 10, 'Adresse du proprietaire de la fiche : '.$RecupAdresseDuProprietaireFicheAuForfait. ", ". $RecupCPeDuProprietaireFicheAuForfait ." ".  $RecupVilleDuProprietaireFicheAuForfait.'', 0, 1, 'L', 1);
             $pdf->SetXY(78, 138);
             $pdf->Cell(50, 8, 'Montant rembourse de cette fiche', 1, 0, 'C', 1);
             $pdf->SetDrawColor(0, 0, 0);
@@ -380,6 +389,16 @@
                 $NomDuProprietaireFicheHorsForfait = $RecupNomPrenomDuProprietaireFicheHorsForfait['nom'];
                 $PrenomDuProprietaireFicheHorsForfait = $RecupNomPrenomDuProprietaireFicheHorsForfait['prenom'];
             }
+            $reqRecupNomRoleDuProprietaireFicheHorsForfait = $conn->query("select NomRole from role inner join utilisateur on role.idr = utilisateur.idr where id='".$IdDuProprietaireFicheHorsForfait."'");
+            while($RecupNomRoleDuProprietaireFicheHorsForfait = $reqRecupNomRoleDuProprietaireFicheHorsForfait->fetch()){
+                $NomRoleDuProprietaireFicheHorsForfait = $RecupNomRoleDuProprietaireFicheHorsForfait['NomRole'];
+            }
+            $reqRecupAdresseVilleCpDuProprietaireFicheHorsForfait = $conn->query("select adresse,ville,cp from utilisateur where id='".$IdDuProprietaireFicheHorsForfait."';");
+            while($RecupAdresseVilleCpDuProprietaireFicheHorsForfait = $reqRecupAdresseVilleCpDuProprietaireFicheHorsForfait->fetch()){
+                $RecupAdresseDuProprietaireFicheHorsForfait = $RecupAdresseVilleCpDuProprietaireFicheHorsForfait['adresse'];
+                $RecupVilleDuProprietaireFicheHorsForfait = $RecupAdresseVilleCpDuProprietaireFicheHorsForfait['ville'];
+                $RecupCPeDuProprietaireFicheHorsForfait = $RecupAdresseVilleCpDuProprietaireFicheHorsForfait['cp'];
+            }
 
 
             ob_start();
@@ -405,13 +424,13 @@
             $pdf->SetXY(0, 60);
             $pdf->Cell(210, 10, 'Nom du proprietaire de la fiche : '.$NomDuProprietaireFicheHorsForfait.' '.$PrenomDuProprietaireFicheHorsForfait.'', 0, 1, 'L', 1);
             $pdf->SetXY(0, 72);
-            $pdf->Cell(210, 10, 'Matricule du proprietaire de la fiche : '.$_SESSION['id'].'', 0, 1, 'L', 1);
+            $pdf->Cell(210, 10, 'Matricule du proprietaire de la fiche : '.$IdDuProprietaireFicheHorsForfait.'', 0, 1, 'L', 1);
             $pdf->SetXY(150, 78);
             $pdf->Cell(60, 8, 'Numero de la fiche de frais : '.$IdFicheHorsForfait.'', 0, 1, 'C', 1);
             $pdf->SetXY(0, 84);
-            $pdf->Cell(210, 10, 'Role du proprietaire de la fiche : '.$_SESSION['id'].'', 0, 1, 'L', 1);
+            $pdf->Cell(210, 10, 'Role du proprietaire de la fiche : '. $NomRoleDuProprietaireFicheHorsForfait.'', 0, 1, 'L', 1);
             $pdf->SetXY(0, 96);
-            $pdf->Cell(210, 10, 'Adresse du proprietaire de la fiche : '.$_SESSION['id'].'', 0, 1, 'L', 1);
+            $pdf->Cell(210, 10, 'Adresse du proprietaire de la fiche : '.$RecupAdresseDuProprietaireFicheHorsForfait. ", ". $RecupCPeDuProprietaireFicheHorsForfait ." ".  $RecupVilleDuProprietaireFicheHorsForfait.'', 0, 1, 'L', 1);
             $pdf->SetDrawColor(0, 0, 0);
             $pdf->SetTextColor(0);
             $pdf->SetFillColor(38, 196, 236);

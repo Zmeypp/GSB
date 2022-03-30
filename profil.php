@@ -2,7 +2,9 @@
     session_start();
 
     include('./Connection_BDD.php');
-    $conn = getBdd('localhost', 'root', '');
+    $conn = getBdd('localhost', 'groupe3', 'sio2021');
+
+
 
 
     if($_SESSION['idr'] == 1) {
@@ -51,6 +53,7 @@
                 </div>
             </div>
         </center>
+        <script src="./js/disconnectFiveMinutes.js"></script>
     </body>
 </html>
 
@@ -195,7 +198,7 @@
                 </div>
             </div>
         </center>
-
+        <script src="./js/disconnectFiveMinutes.js"></script>
     </body>
 </html>
 
@@ -286,7 +289,7 @@
             </div>
         </div>
     </center>
-
+    <script src="./js/disconnectFiveMinutes.js"></script>
     </body>
 </html>
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('./Connection_BDD.php');
-$conn = getBdd('localhost', 'root', '');
+$conn = getBdd('localhost', 'groupe3', 'sio2021');
 
 // CHEVAUX FISCAUX UTILISATEUR RECUPERATION DONNEES EXISTANTES :
 

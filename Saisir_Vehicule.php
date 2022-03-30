@@ -1,7 +1,7 @@
 <?php
     session_start();
     include('./Connection_BDD.php');
-    $conn = getBdd('localhost', 'root', '');
+    $conn = getBdd('localhost', 'groupe3', 'sio2021');
 
     $reqVerifVehiculeUserInDb = $conn->prepare("SELECT * from gsb_frais.vehicule_utilisateur WHERE idUser='".$_SESSION['id']."'");
     $reqVerifVehiculeUserInDb->execute();

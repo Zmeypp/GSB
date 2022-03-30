@@ -2,7 +2,7 @@
     session_start();
 
     include('./Connection_BDD.php');
-    $conn = getBdd('localhost', 'root', '');
+    $conn = getBdd('localhost', 'groupe3', 'sio2021');
     $NombreTotalDeFiche = "";
     $MontantTotalFiche = "";
 
