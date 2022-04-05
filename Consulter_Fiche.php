@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('./Connection_BDD.php');
-$conn = getBdd('localhost', 'groupe3', 'sio2021');
+$conn = getBdd('localhost', 'root', 'sio2021');
 
 // CHEVAUX FISCAUX UTILISATEUR RECUPERATION DONNEES EXISTANTES :
 
@@ -603,6 +603,6 @@ foreach($AllIdHorsForfait as $IdFicheHorsForfait) {
 
     </center>
 
-
+    <script src="./js/disconnectFiveMinutes.js"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
     session_start();
     include('./Connection_BDD.php');
-    $conn = getBdd('localhost', 'groupe3', 'sio2021');
+    $conn = getBdd('localhost', 'root', 'sio2021');
 
     $reqVerifVehiculeUserInDb = $conn->prepare("SELECT * from gsb_frais.vehicule_utilisateur WHERE idUser='".$_SESSION['id']."'");
     $reqVerifVehiculeUserInDb->execute();
@@ -104,6 +104,6 @@
                 </div>
             </div>
         </center>
-
+    <script src="./js/disconnectFiveMinutes.js"></script>
     </body>
 </html>

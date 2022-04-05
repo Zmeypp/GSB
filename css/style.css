@@ -185,3 +185,10 @@ input[type=text], input[type=password]{
     color: black;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
+form i {
+    margin-left: -30px;
+    margin-top: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}

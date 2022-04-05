@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('./Connection_BDD.php');
-$conn = getBdd('localhost', 'groupe3', 'sio2021');
+$conn = getBdd('localhost', 'root', 'sio2021');
 $erreur = "";
 
 if(isset($_POST['formconnexion'])) {
@@ -57,6 +57,7 @@ if(isset($_POST['formconnexion'])) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="./lib/animate/animate.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     </head>
 
     <body>
@@ -70,20 +71,41 @@ if(isset($_POST['formconnexion'])) {
                     <input class="input" type="text" name="userconnect" placeholder="Nom d'utilisateur">
                 </div>
                 <br />
-                <div class="field">
-                    <input class="input" type="password" name="mdpconnect" placeholder="Mot de passe">
+                <div class="field" style="position: relative; display: flex;">
+                    <input class="input" type="password" id="password" name="mdpconnect" placeholder="Mot de passe">
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
                 </div>
                 <div class="field">
                     <img src="captcha.php" class="imgCaptcha"/>
                     <input class="input" name="captcha" type="text" placeholder="Réponse au captcha">
                 </div>
 
-                <button class="button is-primary buttonConnexion" name="formconnexion">Me connecter</button>
+                <button class="button is-primary buttonConnexion" id="submit" name="formconnexion">Me connecter</button>
                 <?php
                     echo $erreur;
                 ?>
             </form>
         </div>
     </center>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+            const togglePassword = document.querySelector("#togglePassword");
+            const password = document.querySelector("#password");
+
+            togglePassword.addEventListener("click", function () {
+                // toggle the type attribute
+                const type = password.getAttribute("type") === "password" ? "text" : "password";
+                password.setAttribute("type", type);
+
+                // toggle the icon
+                this.classList.toggle("bi-eye");
+            });
+
+            // prevent form submit
+            const form = document.querySelector("form");
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+            });
+    </script>
     </body>
 </html>
